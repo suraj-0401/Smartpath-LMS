@@ -1,33 +1,95 @@
 import React from 'react';
 
-const HeroSection = () => {
+
+// Placeholder for the progress bar data
+const progressData = [
+  { name: 'Introduction', type: 'MP3', size: '400Mb', progress: 100 },
+  { name: 'Workspace', type: 'PDF', size: '400Mb', progress: 100 },
+  { name: 'Panels & Tools', type: 'MP4', size: '400Mb', progress: 100 },
+  { name: 'Customization', type: 'MP4', size: '400Mb', progress: 100 },
+];
+
+const HeroSection: React.FC = () => {
   return (
-    // Hero Section
-    <div className="relative min-h-screen bg-[#faf8ff] grid place-items-center">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEgTCAyMCAxIiBzdHJva2U9IiNlM2UzZTMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PHBhdGggZD0iTSAxIDAgTCAxIDIwIiBzdHJva2U9IiNlM2UzZTMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50"></div>
-
-      <div className="container mx-auto px-4 relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-[64px] font-bold leading-tight mb-6">
-            Transform Your
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-8">
+        {/* Left Section: Text, Logos, and Buttons */}
+        <div className="lg:w-1/2 space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <span className="text-blue-600">Sell more courses</span>
             <br />
-            Learning Journey
+            and spend <span className="text-black">less</span> time doing it
           </h1>
-
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-            Experience personalized learning with AI-powered insights and expert guidance. Join us to unlock your full potential.
+          <p className="text-gray-600 text-lg md:text-xl">
+            We make turning your expertise into engaging online courses easy. Do it with an easy-to-use solution designed with the learning experience in mind.
           </p>
+         
+          {/* Buttons */}
+          <div className="flex gap-4">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105">
+              Book a demo →
+            </button>
+            <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+              Start free trial
+            </button>
+          </div>
+        </div>
 
-          <button className="bg-[#8B5CF6] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#7C3AED] transition-colors flex items-center gap-2 mx-auto">
-            Start Now
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          <p className="mt-12 text-[#8B5CF6] font-medium">
-            20+ students already learning
-          </p>
+        {/* Right Section: Image, Progress Circle, and Floating Card */}
+        <div className="lg:w-1/2 relative flex justify-center">
+          {/* Background Image (Replace with actual image URL) */}
+          <img
+            src="https://images.prismic.io/thinkific/Z6zCI5bqstJ9-iQD_GTM-3273Plus-ifiedHomepageImage.jpg?auto=format,compress"
+            alt="Smiling Woman"
+            className="rounded-3xl shadow-lg w-full max-w-md"
+          />
+          {/* Progress Circle */}
+          <div className="absolute top-0 left-0 bg-white p-4 rounded-xl shadow-lg transform -translate-x-1/4 -translate-y-1/4">
+            <div className="relative w-20 h-20">
+              <svg className="w-full h-full" viewBox="0 0 36 36">
+                <path
+                  className="text-gray-200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path
+                  className="text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeDasharray="83, 100"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <text x="18" y="20" className="text-blue-600 text-sm font-bold text-center" textAnchor="middle">
+                  83%
+                </text>
+              </svg>
+            </div>
+            <p className="text-center text-gray-600 mt-2">Enrollments Started</p>
+          </div>
+          {/* Floating Card with Progress Bars */}
+          <div className="absolute bottom-0 right-0 bg-white p-4 rounded-xl shadow-lg transform translate-x-1/4 translate-y-1/4 w-64">
+            {progressData.map((item, index) => (
+              <div key={index} className="mb-4 last:mb-0">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-gray-700 font-semibold">{item.name}</span>
+                  <span className="text-gray-500 text-sm">{item.type} • {item.size}</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    className="bg-blue-600 h-2.5 rounded-full transition-all duration-500 ease-in-out"
+                    style={{ width: `${item.progress}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -29,10 +29,6 @@ const Navbar = () => {
             <a href="#support" className="text-gray-700 hover:text-[#00BFB3]">Support & Services</a>
           </div>
 
-          <button className="hidden lg:block px-6 py-2 border-2 border-[#00BFB3] text-[#00BFB3] rounded-full hover:bg-[#00BFB3] hover:text-white transition-all">
-            Support Child
-          </button>
-
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button

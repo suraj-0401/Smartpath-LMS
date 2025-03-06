@@ -33,7 +33,7 @@ const ContactForm = () => {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1 },
     hover: {
-      scale: 1.03,
+      scale: 1.05,
       boxShadow: '0 10px 20px rgba(45, 212, 191, 0.3)',
       transition: { duration: 0.3 },
     },
@@ -189,15 +189,15 @@ const ContactForm = () => {
             viewport={{ once: false }}
             className="w-full lg:w-1/2 relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-xs lg:max-w-md h-[400px] rounded-2xl overflow-hidden shadow-lg">
+            <div className="relative w-full max-w-xs lg:max-w-md h-[530px] rounded-full overflow-hidden shadow-lg">
               <img
                 src="https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=279.825&fit=crop&h=453.05"
                 alt="Teacher with book and thumbs-up"
                 className="w-full h-full object-cover transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-teal-400 opacity-20 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-teal-400 opacity-20 rounded-full"></div>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-teal-900/30 to-transparent rounded-2xl"
+                className="absolute inset-0 bg-gradient-to-t from-teal-900/30 to-transparent rounded-full"
                 animate={{ opacity: [0.3, 0.4, 0.3] }}
                 transition={{ duration: 4, repeat: Infinity }}
               />

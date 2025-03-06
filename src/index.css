@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+svg text {
+    font-size: 12px;
+    dominant-baseline: middle;
+}
