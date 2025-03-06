@@ -8,10 +8,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h2 className="text-xl font-bold">Smartpath</h2>
-            <p className="text-gray-300 p-4">
+            <p className="text-gray-300 px-8 -ml-8 mt-2">
               Transforming education through AI-powered personalized learning experiences.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mt-2 -ml-2">
               <a href="https://www.facebook.com/share/PchY6FwysKKdd7EZ/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
                 <Facebook className="w-6 h-6" />
               </a>
