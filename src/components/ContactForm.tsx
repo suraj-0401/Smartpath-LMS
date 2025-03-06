@@ -56,7 +56,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden relative rounded-xl shadow-lg mx-4 sm:mx-6 lg:mx-8">      
+    <section id="contact-form" className="py-16 md:py-24 bg-white overflow-hidden relative rounded-xl shadow-lg mx-4 sm:mx-6 lg:mx-8">      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <motion.div
           variants={containerVariants}

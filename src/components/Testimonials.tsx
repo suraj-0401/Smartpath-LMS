@@ -8,7 +8,7 @@ const testimonials = [
     name: "Dr. Amelia Chen",
     role: "Dean, Horizon Academy",
     image: "https://images.unsplash.com/photo-1573496359142-b8d877993ecb?auto=format&fit=crop&q=80&w=150&h=150",
-    review: "EduVerse has transformed our institution's workflow with its cutting-edge features and seamless integration. It's a game-changer for modern education.",
+    review: "Smartpath has transformed our institution's workflow with its cutting-edge features and seamless integration. It's a game-changer for modern education.",
     rating: 5
   },
   {

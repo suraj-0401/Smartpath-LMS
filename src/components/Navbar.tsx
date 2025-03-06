@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,17 +17,14 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-8">
-            <div className="relative group">
-              <a href="#about" className="text-gray-700 hover:text-[#00BFB3]">About Us</a>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00BFB3] transition-all group-hover:w-full"></span>
-            </div>
-            <div className="relative group">
-              <a href="#products" className="text-gray-700 hover:text-[#00BFB3]">Our Products</a>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00BFB3] transition-all group-hover:w-full"></span>
-            </div>
-            <a href="#blogs" className="text-gray-700 hover:text-[#00BFB3]">Blogs</a>
-            <a href="#contact" className="text-gray-700 hover:text-[#00BFB3]">Contact Us</a>
-            <a href="#support" className="text-gray-700 hover:text-[#00BFB3]">Support & Services</a>
+            {['about', 'products', 'blogs', 'contact', 'support'].map((item) => (
+              <div className="relative group" key={item}>
+                <Link to={`#${item}`} className="text-gray-700 hover:text-[#00BFB3]">
+                  {item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, ' $1')}
+                </Link>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00BFB3] transition-all group-hover:w-full"></span>
+              </div>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -44,11 +42,14 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-[#00BFB3]">About Us</a>
-              <a href="#products" className="block px-3 py-2 text-gray-700 hover:text-[#00BFB3]">Our Products</a>
-              <a href="#blogs" className="block px-3 py-2 text-gray-700 hover:text-[#00BFB3]">Blogs</a>
-              <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-[#00BFB3]">Contact Us</a>
-              <a href="#support" className="block px-3 py-2 text-gray-700 hover:text-[#00BFB3]">Support & Services</a>
+              {['about', 'products', 'blogs', 'contact', 'support'].map((item) => (
+                <div className="relative group" key={item}>
+                  <Link to={`#${item}`} className="block px-3 py-2 text-gray-700 hover:text-[#00BFB3]">
+                    {item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, ' $1')}
+                  </Link>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00BFB3] transition-all group-hover:w-full"></span>
+                </div>
+              ))}
             </div>
           </div>
         )}

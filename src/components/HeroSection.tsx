@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
           
           {/* Buttons */}
           <div className="flex gap-4">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105" onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
               Book a demo →
             </button>
             <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
