@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 // Placeholder for the progress bar data
 const progressData = [
@@ -8,90 +10,156 @@ const progressData = [
   { name: 'Customization', type: 'MP4', size: '400Mb', progress: 100 },
 ];
 
-const HeroSection: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-8">
-        {/* Left Section: Text, Logos, and Buttons */}
-        <div className="lg:w-1/2 space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="text-blue-600">Revolutionize Education</span>
-            <br />
-            <span className="text-black">with our LMS</span>
-          </h1>
-          <p className="text-gray-600 text-lg md:text-xl">
-            Revolutionize education with our advanced LMS—integrate cutting-edge tools, optimize administration, and enhance learning outcomes in a single, scalable platform built for growth.
-          </p>
-          
-          {/* Buttons */}
-          <div className="flex gap-4">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105" onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
-              Book a demo →
-            </button>
-            <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
-              Start free trial
-            </button>
-          </div>
-        </div>
+const HeroSection = () => {
+  const features = [
+    'Smart Attendance System',
+    'Performance Analytics',
+    'Parent Communication',
+    'Digital Learning Platform'
+  ];
 
-        {/* Right Section: Image, Progress Circle, and Floating Card */}
-        <div className="lg:w-1/2 relative flex justify-center">
-          {/* Background Image (Replace with actual image URL) */}
-          <img
-            src="https://images.prismic.io/thinkific/Z6zCI5bqstJ9-iQD_GTM-3273Plus-ifiedHomepageImage.jpg?auto=format,compress"
-            alt="Smiling Woman"
-            className="rounded-3xl shadow-lg w-full max-w-md"
-          />
-          {/* Progress Circle */}
-          <div className="absolute top-0 left-0 bg-white p-4 rounded-xl shadow-lg transform -translate-x-1/4 -translate-y-1/4">
-            <div className="relative w-20 h-20">
-              <svg className="w-full h-full" viewBox="0 0 36 36">
-                <path
-                  className="text-gray-200"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <path
-                  className="text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeDasharray="83, 100"
-                  d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <text x="18" y="20" className="text-blue-600 text-sm font-bold text-center" textAnchor="middle">
-                  83%
-                </text>+
-              </svg>
+  return (
+    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-purple-50/50 to-white" />
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'radial-gradient(circle at 25px 25px, rgba(128, 0, 255, 0.05) 2%, transparent 0%)',
+        backgroundSize: '50px 50px'
+      }} />
+
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <span className="text-[#4A4A4A]">Transform Your</span>
+              <br />
+              <span className="bg-gradient-to-r from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent">
+                School Management
+              </span>
+            </motion.h1>
+
+            <motion.p 
+              className="text-lg text-gray-600 mb-8 max-w-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Revolutionize education with our advanced LMS—integrate cutting-edge tools, 
+              optimize administration, and enhance learning outcomes.
+            </motion.p>
+
+            {/* Feature List */}
+            <motion.div 
+              className="space-y-4 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature}
+                  className="flex items-center gap-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#8000FF]/10 flex items-center justify-center">
+                    <CheckCircle className="w-4 h-4 text-[#8000FF]" />
+                  </div>
+                  <span className="text-gray-700">{feature}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <motion.button
+                className="px-8 py-4 bg-[#8000FF] text-white rounded-full font-medium 
+                         hover:bg-[#6700D1] transition-all duration-300 shadow-lg 
+                         hover:shadow-[#8000FF]/25 flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started Now
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </motion.span>
+              </motion.button>
+
+              <motion.button
+                className="px-8 py-4 border-2 border-[#8000FF] text-[#8000FF] rounded-full 
+                         font-medium hover:bg-[#8000FF]/5 transition-all duration-300 
+                         flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Watch Demo
+              </motion.button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="relative z-10">
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                alt="Smart Path Platform"
+                className="rounded-2xl shadow-2xl object-cover h-[600px] w-full"
+              />
+              
+              {/* Stats Card */}
+              <motion.div
+                className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(128, 0, 255, 0.1)' }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-full bg-[#8000FF]/10 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-[#8000FF]">83%</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Success Rate</p>
+                    <p className="font-semibold text-gray-900">Student Performance</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Image Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#8000FF]/10 to-transparent rounded-2xl" />
             </div>
-            <p className="text-center text-gray-600 mt-2">Enrollments Started</p>
-          </div>
-          {/* Floating Card with Progress Bars */}
-          <div className="absolute bottom-0 right-0 bg-white p-4 rounded-xl shadow-lg transform translate-x-1/4 translate-y-1/4 w-64">
-            {progressData.map((item, index) => (
-              <div key={index} className="mb-4 last:mb-0">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-700 font-semibold">{item.name}</span>
-                  <span className="text-gray-500 text-sm">{item.type} • {item.size}</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="bg-blue-600 h-2.5 rounded-full transition-all duration-500 ease-in-out"
-                    style={{ width: `${item.progress}%` }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
+
+            {/* Background Decorations */}
+            <div className="absolute -z-10 top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#8000FF]/20 rounded-full blur-3xl" />
+            <div className="absolute -z-10 bottom-0 left-0 transform -translate-x-1/2 w-72 h-72 bg-[#9747FF]/20 rounded-full blur-3xl" />
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
