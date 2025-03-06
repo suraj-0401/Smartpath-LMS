@@ -52,18 +52,11 @@ const ContactForm = () => {
         damping: 15,
       },
     },
-    hover: { scale: 1.05 },
+    // Removed hover variant to avoid mobile issues as per request
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-teal-50 via-white to-indigo-50 overflow-hidden relative rounded-xl shadow-lg mx-4 sm:mx-6 lg:mx-8">
-      {/* Decorative Background Circle */}
-      <motion.div
-        className="absolute top-1/2 right-0 w-96 h-96 bg-teal-400 opacity-20 rounded-full -translate-y-1/2 translate-x-1/4 blur-xl"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.25, 0.2] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
+    <section className="py-16 md:py-24 bg-white overflow-hidden relative rounded-xl shadow-lg mx-4 sm:mx-6 lg:mx-8">      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <motion.div
           variants={containerVariants}
@@ -72,7 +65,7 @@ const ContactForm = () => {
           viewport={{ once: false }}
           className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12"
         >
-          {/* Combined Form and Image Section */}
+          {/* Combined Form Section */}
           <div className="w-full lg:w-1/2 space-y-6">
             <motion.h2
               variants={inputVariants}
@@ -118,23 +111,12 @@ const ContactForm = () => {
               </motion.div>
 
               <motion.div variants={inputVariants}>
-                <select
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white/70 focus:ring-2 focus:ring-teal-400 focus:border-transparent hover:border-teal-300 transition-all duration-300 appearance-none"
-                >
-                  <option>Select the Product</option>
-                  <option>Smartpath</option>
-                  <option>LearnPro</option>
-                  <option>EduSync</option>
-                </select>
-              </motion.div>
-              <motion.div variants={inputVariants}>
                 <input
                   type="text"
                   placeholder="City"
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white/70 focus:ring-2 focus:ring-teal-400 focus:border-transparent hover:border-teal-300 transition-all duration-300"
                 />
               </motion.div>
-
               <motion.div variants={inputVariants} className="sm:col-span-2">
                 <input
                   type="text"
@@ -180,20 +162,19 @@ const ContactForm = () => {
             </form>
           </div>
 
-          {/* Image Section within the same div */}
+          {/* Image Section (hidden on mobile) */}
           <motion.div
             variants={imageVariants}
             initial="hidden"
             whileInView="visible"
-            whileHover="hover"
             viewport={{ once: false }}
-            className="w-full lg:w-1/2 relative flex justify-center lg:justify-end"
+            className="w-full lg:w-1/2 relative flex justify-center lg:justify-end lg:block hidden"
           >
-            <div className="relative w-full max-w-xs lg:max-w-md h-[530px] rounded-full overflow-hidden shadow-lg">
+            <div className="relative w-full max-w-xs lg:max-w-lg h-[590px] rounded-full overflow-hidden lg:shadow-lg">
               <img
                 src="https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=279.825&fit=crop&h=453.05"
                 alt="Teacher with book and thumbs-up"
-                className="w-full h-full object-cover transition-transform duration-300"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-teal-400 opacity-20 rounded-full"></div>
               <motion.div

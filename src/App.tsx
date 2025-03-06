@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import Spinner from './components/Spinner';
-
 const Navbar = lazy(() => import('./components/Navbar'));
 const Stats = lazy(() => import('./components/Stats'));
 const Benefits = lazy(() => import('./components/Benefits'));

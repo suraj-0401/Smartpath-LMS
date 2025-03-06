@@ -51,7 +51,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-indigo-50 via-white to-teal-50 overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}

@@ -1,14 +1,14 @@
 import React, { useEffect, useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Users, School, GraduationCap, FileText, MapPin } from 'lucide-react';
+import { Users, GraduationCap, MapPin, School } from 'lucide-react';
 
 const stats = [
-  { icon: School, number: 100, label: 'Schools Activated' },
+  { icon: Users, number: 8000, label: 'Users Registered' },
+  { icon: GraduationCap, number: 2000, label: 'Monthly Active Users' },
   { icon: Users, number: 300, label: 'Dedicated Academic Team' },
-  { icon: GraduationCap, number: 200000, label: 'MCQs Available' },
-  { icon: FileText, number: 2500, label: 'Assignments Completed Daily' },
-  { icon: MapPin, number: 72, label: 'Cities Empowered' },
+  { icon: School, number: 100, label: 'Schools Activated' },
+  { icon: MapPin, number: 10, label: 'Cities Served' },
 ];
 
 interface StatItemProps {
@@ -68,7 +68,7 @@ const Stats = () => {
   }, [inView]);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#F8FDFC] via-white to-[#E6F8F7] overflow-hidden">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           className="text-center mb-12 md:mb-16 relative"

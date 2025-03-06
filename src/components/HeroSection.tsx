@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 // Placeholder for the progress bar data
 const progressData = [
   { name: 'Introduction', type: 'MP3', size: '400Mb', progress: 100 },
@@ -11,19 +10,19 @@ const progressData = [
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left Section: Text, Logos, and Buttons */}
         <div className="lg:w-1/2 space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="text-blue-600">Sell more courses</span>
+            <span className="text-blue-600">Revolutionize Education</span>
             <br />
-            and spend <span className="text-black">less</span> time doing it
+            <span className="text-black">with our LMS</span>
           </h1>
           <p className="text-gray-600 text-lg md:text-xl">
-            We make turning your expertise into engaging online courses easy. Do it with an easy-to-use solution designed with the learning experience in mind.
+            Revolutionize education with our advanced LMS—integrate cutting-edge tools, optimize administration, and enhance learning outcomes in a single, scalable platform built for growth.
           </p>
-         
+          
           {/* Buttons */}
           <div className="flex gap-4">
             <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105">
@@ -68,7 +67,7 @@ const HeroSection: React.FC = () => {
                 />
                 <text x="18" y="20" className="text-blue-600 text-sm font-bold text-center" textAnchor="middle">
                   83%
-                </text>
+                </text>+
               </svg>
             </div>
             <p className="text-center text-gray-600 mt-2">Enrollments Started</p>
