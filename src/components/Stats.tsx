@@ -1,106 +1,120 @@
-import React, { useEffect, useState, memo } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Users, GraduationCap, MapPin, School } from 'lucide-react';
+import { Users, GraduationCap, School } from 'lucide-react';
 
-const stats = [
-  { icon: Users, number: 8000, label: 'Users Registered' },
-  { icon: GraduationCap, number: 2000, label: 'Monthly Active Users' },
-  { icon: Users, number: 300, label: 'Dedicated Academic Team' },
-  { icon: School, number: 100, label: 'Schools Activated' },
-  { icon: MapPin, number: 10, label: 'Cities Served' },
+const statsData = [
+  {
+    icon: Users,
+    value: '10K+',
+    label: 'Active Students',
+    description: 'Students actively using our platform',
+    color: 'from-[#8000FF] to-[#9747FF]'
+  },
+  {
+    icon: School,
+    value: '500+',
+    label: 'Partner Schools',
+    description: 'Educational institutions trust us',
+    color: 'from-[#FF6B6B] to-[#FF8E8E]'
+  },
+  {
+    icon: GraduationCap,
+    value: '95%',
+    label: 'Success Rate',
+    description: 'Students showing improved performance',
+    color: 'from-[#4CAF50] to-[#69F0AE]'
+  }
 ];
 
-interface StatItemProps {
-  stat: { icon: React.ElementType; number: number; label: string; };
-  count: number;
-}
-
-const StatItem = memo(({ stat, count }: StatItemProps) => {
-  const Icon = stat.icon;
-  return (
-    <motion.div
-      className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl border border-gray-100 hover:border-[#00BFB3] transition-all duration-300 cursor-pointer relative overflow-hidden"
-    >
-      <motion.div
-        className="flex justify-center mb-4"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-[#00BFB3] hover:text-[#2A1A5E] transition-colors duration-300" />
-      </motion.div>
-      <motion.div
-        className="text-3xl sm:text-4xl font-bold text-[#2A1A5E] mb-2"
-      >
-        {count.toLocaleString()}+
-      </motion.div>
-      <div className="text-[#00BFB3] text-sm sm:text-base font-semibold hover:text-[#2A1A5E] transition-colors duration-300">
-        {stat.label}
-      </div>
-    </motion.div>
-  );
-});
-
 const Stats = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
-  const [counts, setCounts] = useState(Array(stats.length).fill(0));
-
-  useEffect(() => {
-    if (inView) {
-      const newCounts = stats.map(stat => stat.number);
-      const increment = Math.ceil(newCounts[0] / 50);
-      const interval = setInterval(() => {
-        setCounts(prevCounts => {
-          return prevCounts.map((count, index) => {
-            if (count < newCounts[index]) {
-              return Math.min(count + increment, newCounts[index]);
-            }
-            return count;
-          });
-        });
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [inView]);
-
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.div
-          className="text-center mb-12 md:mb-16 relative"
+    <section className="relative py-20 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-purple-50/30 to-white" />
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'radial-gradient(circle at 25px 25px, rgba(128, 0, 255, 0.03) 2%, transparent 0%)',
+        backgroundSize: '50px 50px'
+      }} />
+
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2A1A5E] tracking-tight">
-            Your Digital Classroom,{' '}
-            <motion.span
-              className="text-[#00BFB3]"
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              Anytime, Anywhere
-            </motion.span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent">
+              Trusted by Leading Institutions
+            </span>
           </h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-4 text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto font-medium"
-          >
-            Empowering education with real impact across the globe
-          </motion.p>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Our platform has helped thousands of students and educators achieve better learning outcomes
+          </p>
         </motion.div>
 
-        <motion.div
-          ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8"
-        >
-          {stats.map((stat, index) => (
-            <StatItem key={index} stat={stat} count={counts[index]} />
-          ))}
-        </motion.div>
+        {/* Stats Grid - Centered with max-width */}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
+            {statsData.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="relative group w-full max-w-sm cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ translateY: -8 }}
+              >
+                <div className="relative z-10 bg-white rounded-2xl p-8 h-[280px] w-full
+                              shadow-lg transition-all duration-300 group-hover:shadow-2xl
+                              border border-transparent group-hover:border-purple-100
+                              flex flex-col items-center text-center">
+                  {/* Icon Container */}
+                  <motion.div 
+                    className={`w-16 h-16 rounded-xl bg-gradient-to-r ${stat.color} p-3 mb-6
+                               transition-all duration-300 ease-out`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <stat.icon className="w-full h-full text-white" />
+                  </motion.div>
+
+                  {/* Stats */}
+                  <motion.h3 
+                    className="text-4xl font-bold text-gray-900 mb-3"
+                    initial={{ scale: 1 }}
+                    whileInView={{ scale: [1, 1.2, 1] }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  >
+                    {stat.value}
+                  </motion.h3>
+                  
+                  <h4 className="text-xl font-semibold text-gray-800 mb-3 
+                               group-hover:text-[#8000FF] transition-colors duration-300">
+                    {stat.label}
+                  </h4>
+                  
+                  <p className="text-gray-600">
+                    {stat.description}
+                  </p>
+
+                  {/* Decorative line */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 
+                                bg-gradient-to-r from-[#8000FF] to-[#9747FF] 
+                                group-hover:w-1/2 transition-all duration-300" />
+                </div>
+
+                {/* Background Glow */}
+                <div className={`absolute -z-10 inset-0 bg-gradient-to-r ${stat.color} opacity-0 
+                               group-hover:opacity-5 blur-xl rounded-2xl transition-all duration-300
+                               group-hover:scale-110`} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,136 +1,141 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Dr. Amelia Chen",
-    role: "Dean, Horizon Academy",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d877993ecb?auto=format&fit=crop&q=80&w=150&h=150",
-    review: "Smartpath has transformed our institution's workflow with its cutting-edge features and seamless integration. It's a game-changer for modern education.",
-    rating: 5
+    name: "Sarah Johnson",
+    role: "School Principal",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200",
+    content: "Smart Path has revolutionized how we manage our school. The automated attendance system have saved us countless hours.",
+    rating: 5,
+    school: "Global International School"
   },
   {
-    name: "Prof. Marcus Alvarez",
-    role: "Director, Nova Institute",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=150&h=150",
-    review: "The AI-powered analytics and personalized learning paths have elevated our teaching standards to unprecedented levels.",
-    rating: 5
+    name: "Michael Chen",
+    role: "IT Administrator",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200",
+    content: "The platform's security features and ease of use are outstanding. Integration was smooth, and the support team has been exceptional.",
+    rating: 5,
+    school: "Tech Valley Academy"
   },
   {
-    name: "Emma Richardson",
-    role: "Academic Head, Stellar Prep",
-    image: "https://images.unsplash.com/photo-1593104537481-1e2f69a0be1e?auto=format&fit=crop&q=80&w=150&h=150",
-    review: "An exceptional platform that bridges the gap between technology and education, making learning more interactive and engaging.",
-    rating: 4.5
+    name: "Emily Rodriguez",
+    role: "Department Head",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200",
+    content: "The analytics dashboard provides invaluable insights into student performance. It's helped us improve our teaching methods significantly.",
+    rating: 5,
+    school: "Riverside High School"
   }
 ];
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.2
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1 },
-    exit: { opacity: 0, y: -50, scale: 0.95 }
-  };
-
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-indigo-600 to-teal-500 bg-clip-text text-transparent mb-16"
-        >
-          Voices of Excellence
-        </motion.h2>
+    <section className="relative py-24 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-purple-50/30 to-white" />
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'radial-gradient(circle at 25px 25px, rgba(128, 0, 255, 0.03) 2%, transparent 0%)',
+        backgroundSize: '50px 50px'
+      }} />
 
-        <div ref={ref} className="relative max-w-5xl mx-auto">
-          <AnimatePresence mode="wait">
+      {/* Large Quote Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[400px] text-purple-100/30">
+        "
+      </div>
+
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-[#4A4A4A]">What Our</span>{' '}
+            <span className="bg-gradient-to-r from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent">
+              Users Say
+            </span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover why educational institutions trust Smart Path for their management needs
+          </p>
+        </motion.div>
+
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
             <motion.div
-              key={currentIndex}
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-gray-100/50"
+              key={testimonial.name}
+              className="relative group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
             >
-              <div className="flex flex-col items-center text-center space-y-6">
-                <div className="relative">
-                  <img
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    className="w-28 h-28 rounded-full object-cover ring-4 ring-teal-200/50 transition-transform hover:scale-110"
+              <div className="relative bg-white rounded-2xl p-8 shadow-lg 
+                            transition-all duration-300 group-hover:shadow-2xl 
+                            border border-transparent group-hover:border-purple-100">
+                {/* Quote Icon */}
+                <div className="absolute -top-4 -right-4">
+                  <motion.div 
+                    className="bg-[#8000FF] rounded-full p-3"
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Quote className="w-4 h-4 text-white" />
+                  </motion.div>
+                </div>
+
+                {/* Rating */}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <Star className="w-5 h-5 fill-[#8000FF] text-[#8000FF]" />
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <motion.img 
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                    whileHover={{ scale: 1.1 }}
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    {testimonials[currentIndex].rating} ★
+                  <div>
+                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="text-sm text-[#8000FF]">{testimonial.school}</p>
                   </div>
                 </div>
-                
-                <blockquote className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed">
-                  <span className="text-indigo-500 text-3xl">“</span>
-                  {testimonials[currentIndex].review}
-                  <span className="text-indigo-500 text-3xl">”</span>
-                </blockquote>
 
-                <div>
-                  <h3 className="text-2xl font-semibold bg-gradient-to-r from-indigo-600 to-teal-500 bg-clip-text text-transparent">
-                    {testimonials[currentIndex].name}
-                  </h3>
-                  <p className="text-teal-600 font-medium">{testimonials[currentIndex].role}</p>
-                </div>
+                {/* Decorative Elements */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 
+                              bg-gradient-to-r from-[#8000FF] to-[#9747FF] 
+                              group-hover:w-1/2 transition-all duration-300" />
               </div>
+
+              {/* Background Glow */}
+              <div className="absolute -z-10 inset-0 bg-gradient-to-r from-[#8000FF] to-[#9747FF] opacity-0 
+                            group-hover:opacity-5 blur-xl rounded-2xl transition-all duration-300
+                            group-hover:scale-110" />
             </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Arrows */}
-          <div className="hidden md:block">
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 bg-gradient-to-r from-indigo-500 to-teal-500 p-3 rounded-full shadow-lg hover:scale-110 transition-all text-white"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 bg-gradient-to-r from-indigo-500 to-teal-500 p-3 rounded-full shadow-lg hover:scale-110 transition-all text-white"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center mt-8 gap-3">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-teal-500 w-8 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
