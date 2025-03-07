@@ -15,7 +15,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['About', 'Products', 'Blogs', 'Contact', 'Support'];
+  // Updated navItems with paths
+  const navItems = [
+    { name: 'About', path: '/about' },
+    { name: 'Products', path: '/products' },
+    { name: 'Blogs', path: '/blogs' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Support', path: '/support' }
+  ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,17 +51,17 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item, index) => (
               <motion.div
-                key={item}
+                key={item.name}
                 className="group relative"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <Link 
-                  to={`#${item.toLowerCase()}`} 
+                  to={item.path} 
                   className="text-[#4A4A4A] hover:text-[#8000FF] transition-colors duration-300 text-base font-medium"
                 >
-                  {item}
+                  {item.name}
                 </Link>
                 <motion.span 
                   className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#8000FF] group-hover:w-full transition-all duration-300"
@@ -101,17 +108,17 @@ const Navbar = () => {
             <div className="p-4 space-y-3 max-w-5xl mx-auto">
               {navItems.map((item, index) => (
                 <motion.div
-                  key={item}
+                  key={item.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
                   <Link
-                    to={`#${item.toLowerCase()}`}
+                    to={item.path}
                     className="block px-4 py-2 text-[#4A4A4A] hover:text-[#8000FF] hover:bg-[#8000FF]/5 rounded-lg transition-all"
                     onClick={() => setIsOpen(false)}
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </motion.div>
               ))}
