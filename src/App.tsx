@@ -1,52 +1,36 @@
-import React, { Suspense, lazy } from 'react';
-import Spinner from './components/Spinner';
-const Navbar = lazy(() => import('./components/Navbar'));
-const Stats = lazy(() => import('./components/Stats'));
-const Benefits = lazy(() => import('./components/Benefits'));
-const Features = lazy(() => import('./components/Features'));
-const FAQs = lazy(() => import('./components/FAQs'));
-const ContactForm = lazy(() => import('./components/ContactForm'));
-const Footer = lazy(() => import('./components/Footer'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
-const HeroSection = lazy(() => import('./components/HeroSection'));
+import { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import Spinner from "./components/home/Spinner";
+
+// Lazy load components
+const Navbar = lazy(() => import("./components/home/Navbar"));
+const Footer = lazy(() => import("./components/home/Footer"));
+const Home = lazy(() => import("./pages/Home"));
+const Blogs = lazy(() => import("./components/blogs/Blogs"));
+const BlogDetails=lazy(()=>import( "./components/blogs/BlogDetails"));
+const About = lazy(() => import("./components/about/About"));
+const Contact = lazy(() => import("./components/contact/Contact"));
+const Products = lazy(() => import("./components/products/Products"));
+const Support = lazy(() => import("./components/support/Support"));
 
 function App() {
   return (
-    <div className="relative min-h-screen">
-      {/* Background Pattern */}
-      <div 
-        className="fixed inset-0 opacity-[0.15] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgb(124 58 237 / 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgb(124 58 237 / 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '4rem 4rem'
-        }}
-      />
+    <Suspense fallback={<Spinner />}>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogDetails/>} />
 
-      {/* Content */}
-      <div className="relative z-10">
-        <Suspense fallback={<Spinner />}>
-          <Navbar />
-          <main>
-            <HeroSection />
-            <Stats />
-            <Benefits />
-            <Features />
-            <Testimonials />
-            <FAQs />
-            <ContactForm />
-          </main>
-          <Footer />
-        </Suspense>
-      </div>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/support" element={<Support />} />
 
-      {/* Gradient Orbs */}
-      <div className="fixed top-1/4 -right-64 w-96 h-96 bg-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
-      <div className="fixed top-1/3 -left-64 w-96 h-96 bg-secondary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }} />
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }} />
-    </div>
+      </Routes>
+      <Footer />
+    </Suspense>
   );
 }
 
