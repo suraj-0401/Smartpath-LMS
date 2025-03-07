@@ -1,119 +1,137 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { CheckCircle2 } from 'lucide-react';
-import { memo } from 'react';
+import { 
+  BookOpen, 
+  Users, 
+  BarChart3, 
+  MessageCircle, 
+  Clock, 
+  Shield 
+} from 'lucide-react';
 
 const benefits = [
-  'Comprehensive digital learning platform',
-  'Real-time student performance tracking',
-  'Interactive virtual classrooms',
-  'Automated attendance management',
-  'Seamless parent-teacher communication',
-  'Detailed analytics and reports'
+  {
+    title: "Enhanced Learning Experience",
+    description: "Personalized learning paths and interactive content delivery for enhanced student engagement",
+    icon: BookOpen,
+    color: "from-[#8000FF] to-[#9747FF]"
+  },
+  {
+    title: "Streamlined Administration",
+    description: "Automated attendance system with real-time monitoring and reporting capabilities",
+    icon: Users,
+    color: "from-[#FF6B6B] to-[#FF8E8E]"
+  },
+  {
+    title: "Data-Driven Insights",
+    description: "Comprehensive analytics and insights to track student progress and identify areas for improvement",
+    icon: BarChart3,
+    color: "from-[#4CAF50] to-[#69F0AE]"
+  },
+  {
+    title: "Better Communication",
+    description: "Seamless communication channel between teachers and parents for better student support",
+    icon: MessageCircle,
+    color: "from-[#FF9800] to-[#FFB74D]"
+  },
+  {
+    title: "Time Management",
+    description: "Efficient scheduling and calendar management for classes and activities",
+    icon: Clock,
+    color: "from-[#00BCD4] to-[#80DEEA]"
+  },
+  {
+    title: "Enhanced Security",
+    description: "Advanced security measures to protect sensitive student and institutional data",
+    icon: Shield,
+    color: "from-[#7C4DFF] to-[#B388FF]"
+  }
 ];
 
-const BenefitItem = memo(({ benefit }) => (
-  <motion.div
-    className="group flex items-center gap-4 p-4 sm:p-5 bg-white rounded-xl shadow-md border border-gray-100 hover:border-[#00BFB3] cursor-pointer transition-all duration-300"
-    whileHover={{ scale: 1.03, boxShadow: '0 10px 20px rgba(0, 191, 179, 0.1)' }}
-    whileTap={{ scale: 0.98 }}
-  >
-    <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7 text-[#00BFB3] group-hover:text-[#2A1A5E] transition-colors duration-300" />
-    <span className="text-gray-800 text-sm sm:text-base lg:text-lg font-medium group-hover:text-[#00BFB3] transition-colors duration-300">
-      {benefit}
-    </span>
-  </motion.div>
-));
-
 const Benefits = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="text-center mb-12 md:mb-16"
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-purple-50/50 to-white">
+      {/* Background Elements */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'radial-gradient(circle at 25px 25px, rgba(128, 0, 255, 0.03) 2%, transparent 0%)',
+        backgroundSize: '50px 50px'
+      }} />
+
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2A1A5E] tracking-tight">
-            Transform Your School with{' '}
-            <motion.span
-              className="text-[#00BFB3] inline-block"
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              Smartpath
-            </motion.span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent">
+              Benefits
+            </span>{' '}
+            <span className="text-[#4A4A4A]">for Everyone</span>
           </h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-medium"
-          >
-            Elevate education management with our cutting-edge, all-in-one solution
-          </motion.p>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Experience the advantages that make Smart Path the preferred choice for educational excellence
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <motion.div
-            ref={ref}
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            className="relative group"
-          >
-            <motion.div
-              className="absolute inset-0 bg-[#00BFB3] opacity-10 rounded-2xl"
-              animate={{ rotate: [0, 5, 0], scale: [1, 1.05, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <img
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80"
-              alt="Teacher and student"
-              className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transition-transform duration-300"
-            />
-            <motion.div
-              className="absolute bottom-4 right-4 bg-[#00BFB3] text-white px-4 py-2 rounded-full text-sm font-medium"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              whileHover={{ scale: 1.1 }}
-            >
-              Learn More
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            ref={ref}
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            className="space-y-4"
-          >
+        {/* Benefits Grid - Alternating Layout */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <BenefitItem key={index} benefit={benefit} />
+              <motion.div
+                key={benefit.title}
+                className="relative group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className={`relative overflow-hidden bg-white rounded-2xl p-8 shadow-lg 
+                              transition-all duration-300 group-hover:shadow-2xl border border-transparent 
+                              group-hover:border-purple-100 ${index % 2 === 0 ? 'mt-8' : ''}`}>
+                  {/* Icon Container */}
+                  <div className="relative mb-6 flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${benefit.color} p-2.5
+                                  transform-gpu group-hover:scale-110 transition-transform duration-300`}>
+                      <benefit.icon className="w-full h-full text-white" />
+                    </div>
+                    <div className={`h-0.5 flex-grow bg-gradient-to-r ${benefit.color} opacity-20`} />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#8000FF] 
+                               transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {benefit.description}
+                  </p>
+
+                  {/* Background Accent */}
+                  <div className={`absolute -bottom-1/2 -right-1/2 w-2/3 h-2/3 bg-gradient-to-r 
+                                ${benefit.color} opacity-0 group-hover:opacity-5 blur-3xl 
+                                rounded-full transition-opacity duration-300 -z-10`} />
+                </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
+
+        {/* Bottom Text */}
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Join thousands of educational institutions that have transformed their management with Smart Path
+          </p>
+        </motion.div>
       </div>
     </section>
   );
