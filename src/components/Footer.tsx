@@ -52,6 +52,7 @@ const Footer = () => {
                   <Icon className="w-5 h-5" />
                 </motion.a>
               ))}
+
             </div>
           </div>
 
