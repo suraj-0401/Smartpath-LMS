@@ -46,7 +46,7 @@ const blogPosts: BlogPost[] = [
     date: "Mar 10, 2025",
     readTime: "8 min read",
     category: "Study Tips",
-    image: "https://images.unsplash.com/photo-1584697964167-1b0c1c1c1c1c?auto=format&fit=crop&w=600",
+    image: "https://th.bing.com/th/id/OIP.Ah0qvy7-t-2nuHfEe4u9nQHaFS?rs=1&pid=ImgDetMain",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const blogPosts: BlogPost[] = [
     date: "Mar 15, 2025",
     readTime: "10 min read",
     category: "GATE",
-    image: "https://images.unsplash.com/photo-1584697964167-1b0c1c1c1c1c?auto=format&fit=crop&w=600",
+    image: "https://engineersplanet.com/wp-content/uploads/2023/02/Effective-Strategies-for-Cracking-GATE-Exam.jpg",
   },
   {
     id: 5,
@@ -68,7 +68,7 @@ const blogPosts: BlogPost[] = [
     date: "Mar 20, 2025",
     readTime: "10 min read",
     category: "JEE",
-    image: "https://images.unsplash.com/photo-1509228627916-6b07b3e8b0f5?auto=format&fit=crop&w=600",
+    image: "https://topperchoice.in/wp-content/uploads/2023/07/JEE-Exam-Day-Tips-1.webp",
   },
 ];
 
