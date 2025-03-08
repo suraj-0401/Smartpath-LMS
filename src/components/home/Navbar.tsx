@@ -17,9 +17,9 @@ const Navbar = () => {
 
   // Updated navItems with paths
   const navItems = [
-    { name: 'About', path: '/about' },
     { name: 'Products', path: '/products' },
     { name: 'Blogs', path: '/blogs' },
+    { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
     { name: 'Support', path: '/support' }
   ];

@@ -37,39 +37,6 @@ const blogPosts: BlogPost[] = [
     category: "EdTech",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600",
   },
-  {
-    id: 3,
-    title: "Effective Study Tips for Academic Success",
-    excerpt:
-      "Discover proven study techniques that can help you maximize your learning and achieve your academic goals.",
-    author: "John Doe",
-    date: "Mar 10, 2025",
-    readTime: "8 min read",
-    category: "Study Tips",
-    image: "https://th.bing.com/th/id/OIP.Ah0qvy7-t-2nuHfEe4u9nQHaFS?rs=1&pid=ImgDetMain",
-  },
-  {
-    id: 4,
-    title: "Mastering the GATE Exam: Tips and Strategies",
-    excerpt:
-      "Prepare effectively for the GATE exam with these essential tips and strategies to enhance your performance.",
-    author: "Jane Smith",
-    date: "Mar 15, 2025",
-    readTime: "10 min read",
-    category: "GATE",
-    image: "https://engineersplanet.com/wp-content/uploads/2023/02/Effective-Strategies-for-Cracking-GATE-Exam.jpg",
-  },
-  {
-    id: 5,
-    title: "Mastering the JEE Exam: Tips and Strategies",
-    excerpt:
-      "Unlock your potential and ace the JEE exam with these expert tips and strategies designed for top performance.",
-    author: "Ravi Patel",
-    date: "Mar 20, 2025",
-    readTime: "10 min read",
-    category: "JEE",
-    image: "https://topperchoice.in/wp-content/uploads/2023/07/JEE-Exam-Day-Tips-1.webp",
-  },
 ];
 
 // Define animation variants
