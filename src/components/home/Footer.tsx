@@ -22,6 +22,24 @@ const Footer = () => {
     { name: 'School Management', href: '#' }
   ];
 
+  const socialLinks = [
+    { 
+      Icon: Facebook, 
+      href: 'https://www.facebook.com/share/PchY6FwysKKdd7EZ/?mibextid=LQQJ4d',
+      ariaLabel: 'Visit SmartPath Facebook page'
+    },
+    { 
+      Icon: Instagram, 
+      href: 'https://www.instagram.com/smartpath.co.in/',
+      ariaLabel: 'Follow SmartPath on Instagram'
+    },
+    { 
+      Icon: Linkedin, 
+      href: 'https://www.linkedin.com/company/smartpath-in/',
+      ariaLabel: 'Connect with SmartPath on LinkedIn'
+    }
+  ];
+
   return (
     <footer className="relative bg-gradient-to-b from-[#8000FF]/5 via-[#9747FF]/10 to-[#8000FF]/5">
       <div className="container-custom pt-16 pb-8">
@@ -38,10 +56,13 @@ const Footer = () => {
               Transforming education management with innovative solutions for schools and institutions.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Linkedin].map((Icon, index) => (
+              {socialLinks.map(({ Icon, href, ariaLabel }, index) => (
                 <motion.a
                   key={index}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={ariaLabel}
                   className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center
                            text-[#8000FF] hover:bg-[#8000FF] hover:text-white 
                            transition-all duration-300 shadow-sm"
@@ -50,7 +71,6 @@ const Footer = () => {
                   <Icon className="w-5 h-5" />
                 </motion.a>
               ))}
-
             </div>
           </div>
 
