@@ -1,8 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Facebook, 
-  Twitter, 
   Instagram, 
   Linkedin,
   ChevronRight,
@@ -11,10 +9,10 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Features', href: '#features' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' }
+      { name: 'Products', href: '/products' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Support', href: '/support' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   const productLinks = [
@@ -40,7 +38,7 @@ const Footer = () => {
               Transforming education management with innovative solutions for schools and institutions.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
+              {[Facebook, Instagram, Linkedin].map((Icon, index) => (
                 <motion.a
                   key={index}
                   href="#"
