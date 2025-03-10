@@ -4,10 +4,10 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const HeroSection = () => {
   const features = [
-    'Smart Attendance System',
-    'Performance Analytics',
-    'Parent Communication',
-    'Digital Learning Platform'
+    'AI-Powered Attendance Tracking',
+    'Intelligent Performance Insights',
+    'Automated Parent Updates',
+    'Adaptive Digital Learning'
   ];
 
   const scrollToContact = () => {

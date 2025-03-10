@@ -5,14 +5,14 @@ import { Users, GraduationCap, School } from 'lucide-react';
 const statsData = [
   {
     icon: Users,
-    value: '10K+',
+    value: '20K+',
     label: 'Active Students',
     description: 'Students actively using our platform',
     color: 'from-[#8000FF] to-[#9747FF]'
   },
   {
     icon: School,
-    value: '500+',
+    value: '100+',
     label: 'Partner Schools',
     description: 'Educational institutions trust us',
     color: 'from-[#FF6B6B] to-[#FF8E8E]'
