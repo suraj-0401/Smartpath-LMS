@@ -35,10 +35,10 @@ const Contact: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="container mx-auto px-4 py-16 mt-6 text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
           Get in Touch
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-black max-w-2xl mx-auto">
           Have questions about our services? We're here to help and answer any question you might have.
         </p>
       </motion.div>
@@ -53,8 +53,8 @@ const Contact: React.FC = () => {
             className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <MapPin className="w-8 h-8 text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-            <p className="text-gray-600">Chandigarh, India</p>
+            <h3 className="text-xl font-semibold mb-2 text-black">Visit Us</h3>
+            <p className="text-black">Chandigarh, India</p>
           </motion.div>
 
           <motion.div
@@ -64,8 +64,8 @@ const Contact: React.FC = () => {
             className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <Phone className="w-8 h-8 text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-            <p className="text-gray-600">+91 98761 72758</p>
+            <h3 className="text-xl font-semibold mb-2 text-black">Call Us</h3>
+            <p className="text-black">+91 98761 72758</p>
           </motion.div>
 
           <motion.div
@@ -75,8 +75,8 @@ const Contact: React.FC = () => {
             className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <Mail className="w-8 h-8 text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-            <p className="text-gray-600">support@smartpath.co.in</p>
+            <h3 className="text-xl font-semibold mb-2 text-black">Email Us</h3>
+            <p className="text-black">support@smartpath.co.in</p>
           </motion.div>
 
           <motion.div
@@ -86,8 +86,8 @@ const Contact: React.FC = () => {
             className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <Clock className="w-8 h-8 text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Working Hours</h3>
-            <p className="text-gray-600">Mon - Sat: 9AM to 6PM</p>
+            <h3 className="text-xl font-semibold mb-2 text-black">Working Hours</h3>
+            <p className="text-black">Mon - Sat: 9AM to 6PM</p>
           </motion.div>
         </div>
       </div>
@@ -120,10 +120,10 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.7 }}
             className="bg-white p-8 rounded-xl shadow-lg"
           >
-            <h2 className="text-3xl font-bold mb-6">Send us a Message</h2>
+            <h2 className="text-3xl font-bold mb-6 text-black">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                   Your Name
                 </label>
                 <input
@@ -139,7 +139,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                   Your Email
                 </label>
                 <input
@@ -155,7 +155,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-black mb-2">
                   Subject
                 </label>
                 <input
@@ -171,7 +171,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
                   Message
                 </label>
                 <textarea
@@ -211,8 +211,8 @@ const Contact: React.FC = () => {
       {/* FAQ Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-          <p className="text-gray-600">Find quick answers to common questions about our services.</p>
+          <h2 className="text-3xl font-bold mb-4 text-black">Frequently Asked Questions</h2>
+          <p className="text-black">Find quick answers to common questions about our services.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <motion.div
@@ -221,8 +221,8 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.8 }}
             className="bg-white p-6 rounded-xl shadow-lg"
           >
-            <h3 className="text-xl font-semibold mb-3">What services do you offer?</h3>
-            <p className="text-gray-600">We offer comprehensive educational solutions including AI-powered learning platforms, personalized study plans, and expert guidance for competitive exams.</p>
+            <h3 className="text-xl font-semibold mb-3 text-black">What services do you offer?</h3>
+            <p className="text-black">We offer comprehensive educational solutions including AI-powered learning platforms, personalized study plans, and expert guidance for competitive exams.</p>
           </motion.div>
 
           <motion.div
@@ -231,8 +231,8 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.9 }}
             className="bg-white p-6 rounded-xl shadow-lg"
           >
-            <h3 className="text-xl font-semibold mb-3">How can I start learning?</h3>
-            <p className="text-gray-600">Getting started is easy! Simply sign up on our platform, complete your profile, and our AI system will create a personalized learning path for you.</p>
+            <h3 className="text-xl font-semibold mb-3 text-black">How can I start learning?</h3>
+            <p className="text-black">Getting started is easy! Simply sign up on our platform, complete your profile, and our AI system will create a personalized learning path for you.</p>
           </motion.div>
         </div>
       </div>

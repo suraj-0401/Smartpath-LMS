@@ -15,12 +15,7 @@ const Footer = () => {
     { name: 'Contact', href: '/contact' }
   ];
 
-  const productLinks = [
-    { name: 'Smart Attendance', href: '#' },
-    { name: 'Analytics Dashboard', href: '#' },
-    { name: 'Parent Portal', href: '#' },
-    { name: 'School Management', href: '#' }
-  ];
+  
 
   const socialLinks = [
     { 
@@ -90,21 +85,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Product Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-6">Our Products</h3>
-            <ul className="space-y-4">
-              {productLinks.map((link) => (
-                <motion.li key={link.name} whileHover={{ x: 5 }}>
-                  <a href={link.href} className="text-gray-600 hover:text-[#8000FF] flex items-center gap-2
-                                               transition-colors duration-300">
-                    <ChevronRight className="w-4 h-4" />
-                    {link.name}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
+          
 
           {/* Newsletter */}
           <div>

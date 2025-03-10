@@ -199,23 +199,7 @@ const Products: React.FC = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="bg-black rounded-2xl p-12 text-center"
-          >
-            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Modernize Your Institution?</h2>
-            <p className="text-xl mb-8 text-gray-100">Join hundreds of institutions that have transformed their management with SmartPath</p>
-            <button className="bg-white text-[#052D56] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 font-semibold">
-              Schedule a Demo
-            </button>
-          </motion.div>
-        </div>
-      </div>
+      
     </div>
   );
 };
