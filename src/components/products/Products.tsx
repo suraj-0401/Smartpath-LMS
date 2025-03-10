@@ -13,7 +13,7 @@ const Products: React.FC = () => {
   const products: Product[] = [
     {
       name: "Smart School Management",
-      description: "Complete school management solution with attendance, analytics, and communication tools",
+      description: "Complete school management solution with AI-driven tools for seamless operations",
       features: [
         "Automated attendance tracking",
         "Real-time parent communication",
@@ -26,7 +26,7 @@ const Products: React.FC = () => {
     },
     {
       name: "Institute Analytics Pro",
-      description: "Advanced analytics and reporting system for educational institutes",
+      description: "Advanced AI analytics and reporting for educational institutes",
       features: [
         "Student performance tracking",
         "Customizable dashboards",
@@ -36,47 +36,46 @@ const Products: React.FC = () => {
         "Exam management"
       ],
     },
-
   ];
 
   const features = [
     {
-      icon: <Brain className="w-12 h-12 text-[#052D56]" />,
+      icon: <Brain className="w-10 h-10 text-black" />,
       title: "Smart Management",
       description: "AI-powered system for efficient institution management"
     },
     {
-      icon: <Target className="w-12 h-12 text-[#052D56]" />,
+      icon: <Target className="w-10 h-10 text-black" />,
       title: "Data Analytics",
       description: "Comprehensive analytics for informed decision making"
     },
     {
-      icon: <Clock className="w-12 h-12 text-[#052D56]" />,
+      icon: <Clock className="w-10 h-10 text-black" />,
       title: "24/7 Support",
       description: "Round-the-clock technical assistance and training"
     },
     {
-      icon: <Users className="w-12 h-12 text-[#052D56]" />,
+      icon: <Users className="w-10 h-10 text-black" />,
       title: "Scalable Solution",
       description: "Grows with your institution's needs and requirements"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative bg-white py-20"
+        className="relative py-16 md:py-24 bg-gradient-to-b from-white to-gray-50"
       >
         <div className="container mx-auto px-4 text-center">
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-black mt-7"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-black"
           >
             Transform Your Educational Institution
           </motion.h1>
@@ -84,15 +83,15 @@ const Products: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-700 mb-8 max-w-3xl mx-auto"
           >
-            Comprehensive solutions for schools and institutes to streamline operations and enhance learning
+            Comprehensive AI-driven solutions to streamline operations and elevate learning outcomes
           </motion.p>
         </div>
       </motion.div>
 
       {/* Features Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,21 +99,21 @@ const Products: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-[#052D56]">Why Choose SmartPath?</h2>
-            <p className="text-gray-600">Experience the future of education management with our innovative solutions</p>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-black">Why Choose SmartPath?</h2>
+            <p className="text-gray-600 text-lg">Innovative tools for the future of education management</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="text-center p-6 rounded-xl bg-white border border-gray-200 hover:border-[#052D56] transition-all duration-300"
+                className="p-6 rounded-xl bg-gray-50 shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <div className="mb-4 flex justify-center">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-[#052D56]">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black">{feature.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -122,7 +121,7 @@ const Products: React.FC = () => {
       </div>
 
       {/* Products Section */}
-      <div className="py-16 bg-white">
+      <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -130,8 +129,8 @@ const Products: React.FC = () => {
             transition={{ delay: 0.4 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-[#052D56]">Our Products</h2>
-            <p className="text-gray-600">Select the perfect plan for your preparation</p>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-black">Our Products</h2>
+            <p className="text-gray-600 text-lg">Choose the perfect solution for your institution</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
@@ -140,28 +139,27 @@ const Products: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className="relative bg-white rounded-2xl border border-gray-200 hover:border-[#052D56] transition-all duration-300 overflow-hidden"
+                className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border ${product.popular ? 'border-indigo-500' : 'border-gray-200'}`}
               >
                 {product.popular && (
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-[#052D56] text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Popular
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                      Most Popular
                     </span>
                   </div>
                 )}
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-[#052D56]">{product.name}</h3>
-                  <p className="text-gray-600 mb-6">{product.description}</p>
-                  <div className="mb-8">
+                <div className="p-6 sm:p-8">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-black">{product.name}</h3>
+                  <p className="text-gray-600 mb-6 text-sm sm:text-base">{product.description}</p>
+                  <div className="mb-8 space-y-3">
                     {product.features.map((feature, fIndex) => (
-                      <div key={fIndex} className="flex items-center mb-3">
-                        <Check className="w-5 h-5 text-[#052D56] mr-3" />
-                        <span className="text-gray-700">{feature}</span>
+                      <div key={fIndex} className="flex items-center">
+                        <Check className="w-5 h-5 text-indigo-600 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  
-                  <button className="w-full bg-[#052D56] text-white py-3 rounded-lg hover:bg-blue-900 transition-colors duration-300 flex items-center justify-center">
+                  <button className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center text-sm sm:text-base font-semibold">
                     Get Started <ArrowRight className="w-5 h-5 ml-2" />
                   </button>
                 </div>
@@ -172,34 +170,31 @@ const Products: React.FC = () => {
       </div>
 
       {/* Benefits Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
           >
-            <div className="text-center p-6 bg-white rounded-xl border border-gray-200 hover:border-[#052D56] transition-all duration-300">
-              <Zap className="w-12 h-12 text-[#052D56] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Enhanced Efficiency</h3>
-              <p className="text-gray-600">Streamline operations and save valuable time</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl border border-gray-200 hover:border-[#052D56] transition-all duration-300">
-              <Award className="w-12 h-12 text-[#052D56] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Proven Results</h3>
-              <p className="text-gray-600">Trusted by leading educational institutions</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl border border-gray-200 hover:border-[#052D56] transition-all duration-300">
-              <Crown className="w-12 h-12 text-[#052D56] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Premium Support</h3>
-              <p className="text-gray-600">Dedicated assistance for smooth implementation</p>
-            </div>
+            {[
+              { icon: <Zap className="w-10 h-10 text-black" />, title: "Enhanced Efficiency", desc: "Streamline operations and save time" },
+              { icon: <Award className="w-10 h-10 text-black" />, title: "Proven Results", desc: "Trusted by leading institutions" },
+              { icon: <Crown className="w-10 h-10 text-black" />, title: "Premium Support", desc: "Dedicated assistance for success" },
+            ].map((benefit, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                <div className="mb-4 flex justify-center">{benefit.icon}</div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>
-
-      
     </div>
   );
 };
