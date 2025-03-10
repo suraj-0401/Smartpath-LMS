@@ -5,7 +5,6 @@ import { Target, Heart, Users, Award, BookOpen, Zap } from 'lucide-react';
 interface TeamMember {
   name: string;
   role: string;
-  image: string;
 }
 
 interface Achievement {
@@ -17,20 +16,14 @@ interface Achievement {
 const About: React.FC = () => {
   const teamMembers: TeamMember[] = [
     {
-      name: "Dr. Rajesh Kumar",
+      name: "Ajay Tiwari",
       role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-1.2.1&auto=format&fit=crop&w=400"
     },
     {
-      name: "Dr. Priya Singh",
+      name: "Kajal Chhabra",
       role: "Academic Director",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400"
     },
-    {
-      name: "Prof. Amit Sharma",
-      role: "Head of Research",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400"
-    }
+  
   ];
 
   const achievements: Achievement[] = [
@@ -135,7 +128,6 @@ const About: React.FC = () => {
                   transition={{ delay: 0.6 + index * 0.1 }}
                   className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-[#052D56] transition-all duration-300"
                 >
-                  <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-[#052D56]">{member.name}</h3>
                     <p className="text-gray-600">{member.role}</p>

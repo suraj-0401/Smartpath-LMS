@@ -6,74 +6,59 @@ interface Product {
   name: string;
   description: string;
   features: string[];
-  price: string;
   popular?: boolean;
 }
 
 const Products: React.FC = () => {
   const products: Product[] = [
     {
-      name: "NEET Preparation",
-      description: "Comprehensive NEET preparation with AI-powered learning and practice tests",
+      name: "Smart School Management",
+      description: "Complete school management solution with attendance, analytics, and communication tools",
       features: [
-        "Personalized study plans",
-        "10,000+ practice questions",
-        "Video lectures",
+        "Automated attendance tracking",
+        "Real-time parent communication",
+        "Fee management system",
         "Performance analytics",
-        "Mock tests",
-        "24/7 doubt solving"
+        "Timetable management",
+        "Library management"
       ],
-      price: "₹2,999/month",
       popular: true
     },
     {
-      name: "JEE Advanced",
-      description: "Advanced preparation for JEE with concept-based learning approach",
+      name: "Institute Analytics Pro",
+      description: "Advanced analytics and reporting system for educational institutes",
       features: [
-        "Topic-wise tests",
-        "Live doubt solving",
-        "Previous year papers",
-        "Expert mentorship",
-        "Study materials",
-        "Progress tracking"
+        "Student performance tracking",
+        "Customizable dashboards",
+        "Automated report generation",
+        "Batch management",
+        "Resource allocation",
+        "Exam management"
       ],
-      price: "₹3,499/month"
     },
-    {
-      name: "UPSC Foundation",
-      description: "Strong foundation course for UPSC aspirants with comprehensive coverage",
-      features: [
-        "Current affairs daily",
-        "Optional subject guidance",
-        "Answer writing practice",
-        "Interview preparation",
-        "Study material",
-        "Mentorship support"
-      ],
-      price: "₹4,999/month"
-    }
+
   ];
 
   const features = [
     {
       icon: <Brain className="w-12 h-12 text-[#052D56]" />,
-      title: "AI-Powered Learning",
-      description: "Personalized learning paths adapted to your progress and needs"
+      title: "Smart Management",
+      description: "AI-powered system for efficient institution management"
     },
     {
       icon: <Target className="w-12 h-12 text-[#052D56]" />,
-      title: "Focused Preparation",
-      description: "Targeted practice and assessments for better results"
+      title: "Data Analytics",
+      description: "Comprehensive analytics for informed decision making"
     },
     {
       icon: <Clock className="w-12 h-12 text-[#052D56]" />,
       title: "24/7 Support",
-      description: "Round-the-clock assistance for all your doubts"
+      description: "Round-the-clock technical assistance and training"
     },
     {
       icon: <Users className="w-12 h-12 text-[#052D56]" />,
-      title: "Expert Mentorship",
-      description: "Guidance from experienced educators and toppers"
+      title: "Scalable Solution",
+      description: "Grows with your institution's needs and requirements"
     }
   ];
 
@@ -93,7 +78,7 @@ const Products: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold mb-6 text-black mt-7"
           >
-            Transform Your Learning Journey
+            Transform Your Educational Institution
           </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
@@ -101,7 +86,7 @@ const Products: React.FC = () => {
             transition={{ delay: 0.4 }}
             className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
           >
-            Choose from our range of specialized courses designed to help you achieve your goals
+            Comprehensive solutions for schools and institutes to streamline operations and enhance learning
           </motion.p>
         </div>
       </motion.div>
@@ -116,7 +101,7 @@ const Products: React.FC = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold mb-4 text-[#052D56]">Why Choose SmartPath?</h2>
-            <p className="text-gray-600">Experience the future of education with our innovative features</p>
+            <p className="text-gray-600">Experience the future of education management with our innovative solutions</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -175,9 +160,7 @@ const Products: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="text-3xl font-bold text-[#052D56] mb-6">
-                    {product.price}
-                  </div>
+                  
                   <button className="w-full bg-[#052D56] text-white py-3 rounded-lg hover:bg-blue-900 transition-colors duration-300 flex items-center justify-center">
                     Get Started <ArrowRight className="w-5 h-5 ml-2" />
                   </button>
@@ -199,18 +182,18 @@ const Products: React.FC = () => {
           >
             <div className="text-center p-6 bg-white rounded-xl border border-gray-200 hover:border-[#052D56] transition-all duration-300">
               <Zap className="w-12 h-12 text-[#052D56] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Quick Results</h3>
-              <p className="text-gray-600">See improvement in your performance within weeks</p>
+              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Enhanced Efficiency</h3>
+              <p className="text-gray-600">Streamline operations and save valuable time</p>
             </div>
             <div className="text-center p-6 bg-white rounded-xl border border-gray-200 hover:border-[#052D56] transition-all duration-300">
               <Award className="w-12 h-12 text-[#052D56] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Proven Success</h3>
-              <p className="text-gray-600">Join thousands of successful students</p>
+              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Proven Results</h3>
+              <p className="text-gray-600">Trusted by leading educational institutions</p>
             </div>
             <div className="text-center p-6 bg-white rounded-xl border border-gray-200 hover:border-[#052D56] transition-all duration-300">
               <Crown className="w-12 h-12 text-[#052D56] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Premium Content</h3>
-              <p className="text-gray-600">Access high-quality study materials</p>
+              <h3 className="text-xl font-semibold mb-2 text-[#052D56]">Premium Support</h3>
+              <p className="text-gray-600">Dedicated assistance for smooth implementation</p>
             </div>
           </motion.div>
         </div>
@@ -225,10 +208,10 @@ const Products: React.FC = () => {
             transition={{ delay: 0.8 }}
             className="bg-black rounded-2xl p-12 text-center"
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Start Your Journey?</h2>
-            <p className="text-xl mb-8 text-gray-100">Join thousands of successful students who have achieved their goals with SmartPath</p>
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Modernize Your Institution?</h2>
+            <p className="text-xl mb-8 text-gray-100">Join hundreds of institutions that have transformed their management with SmartPath</p>
             <button className="bg-white text-[#052D56] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 font-semibold">
-              Get Started Now
+              Schedule a Demo
             </button>
           </motion.div>
         </div>
