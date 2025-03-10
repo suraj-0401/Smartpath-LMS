@@ -130,25 +130,6 @@ const HeroSection = () => {
                 className="rounded-2xl shadow-2xl object-cover h-[600px] w-full"
               />
               
-              {/* Stats Card */}
-              <motion.div
-                className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(128, 0, 255, 0.1)' }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-[#8000FF]/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-[#8000FF]">83%</span>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Success Rate</p>
-                    <p className="font-semibold text-gray-900">Student Performance</p>
-                  </div>
-                </div>
-              </motion.div>
-
               {/* Image Overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#8000FF]/10 to-transparent rounded-2xl" />
             </div>
