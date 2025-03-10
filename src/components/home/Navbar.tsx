@@ -15,8 +15,9 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Updated navItems with paths
+  // Updated navItems with Home page
   const navItems = [
+    { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
     { name: 'Blogs', path: '/blogs' },
     { name: 'About', path: '/about' },
@@ -70,19 +71,7 @@ const Navbar = () => {
                 />
               </motion.div>
             ))}
-            <motion.button 
-              className="px-6 py-2 bg-[#8000FF] text-white rounded-full font-medium hover:bg-[#6700D1] transition-colors duration-300 shadow-sm hover:shadow-md"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(128, 0, 255, 0.3)"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started
-            </motion.button>
+            
           </div>
 
           {/* Mobile Menu Button */}
@@ -122,16 +111,7 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div 
-                className="pt-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-              >
-                <button className="w-full px-6 py-2 bg-[#8000FF] text-white rounded-full font-medium hover:bg-[#6700D1] transition-colors duration-300">
-                  Get Started
-                </button>
-              </motion.div>
+              
             </div>
           </motion.div>
         )}

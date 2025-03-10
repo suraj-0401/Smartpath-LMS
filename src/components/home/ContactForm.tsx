@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Calendar, MessageSquare, Phone, Mail, Clock } from 'lucide-react';
+import { Send, Calendar, MessageSquare, Phone, Mail, MapPin } from 'lucide-react';
 
 type FormType = 'query' | 'demo';
 
@@ -18,7 +18,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="contact-section" className="relative py-24 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-purple-50/30 to-white" />
       <div className="absolute inset-0" style={{
@@ -184,7 +184,7 @@ const ContactForm = () => {
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Contact Information</h3>
               <div className="space-y-6">
                 <motion.a
-                  href="tel:+1234567890"
+                  href="tel:+919876172758"
                   className="flex items-center gap-4 text-gray-600 hover:text-[#8000FF] transition-colors duration-300"
                   whileHover={{ x: 5 }}
                 >
@@ -192,10 +192,11 @@ const ContactForm = () => {
                     <Phone className="w-5 h-5 text-[#8000FF]" />
                   </div>
                   <div>
-                    <p className="font-medium">Phone</p>
-                    <p>+1 (234) 567-890</p>
+                    <p className="font-medium text-[#8000FF]">Call Us</p>
+                    <p className="text-gray-700">+91 98761 72758</p>
                   </div>
                 </motion.a>
+
                 <motion.a
                   href="mailto:support@smartpath.com"
                   className="flex items-center gap-4 text-gray-600 hover:text-[#8000FF] transition-colors duration-300"
@@ -205,19 +206,27 @@ const ContactForm = () => {
                     <Mail className="w-5 h-5 text-[#8000FF]" />
                   </div>
                   <div>
-                    <p className="font-medium">Email</p>
-                    <p>support@smartpath.com</p>
+                    <p className="font-medium text-[#8000FF]">Email Us</p>
+                    <p className="text-gray-700">support@smartpath.com</p>
                   </div>
                 </motion.a>
-                <div className="flex items-center gap-4 text-gray-600">
+                
+                <motion.a
+                  href="https://maps.google.com/?q=SmartPath+Chandigarh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-gray-600 hover:text-[#8000FF] transition-colors duration-300"
+                  whileHover={{ x: 5 }}
+                >
                   <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-[#8000FF]" />
+                    <MapPin className="w-5 h-5 text-[#8000FF]" />
                   </div>
                   <div>
-                    <p className="font-medium">Working Hours</p>
-                    <p>Mon - Fri, 9:00 AM - 6:00 PM</p>
+                    <p className="font-medium text-[#8000FF]">Visit Us</p>
+                    <p className="text-gray-700">Chandigarh, India,</p>
+                    {/* <p className="text-gray-600 text-sm">SCO 54-55, 2nd Floor, Sector 34A,<br />Chandigarh, 160022</p> */}
                   </div>
-                </div>
+                </motion.a>
               </div>
             </div>
 

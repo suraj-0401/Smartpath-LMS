@@ -2,14 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 
-// Placeholder for the progress bar data
-const progressData = [
-  { name: 'Introduction', type: 'MP3', size: '400Mb', progress: 100 },
-  { name: 'Workspace', type: 'PDF', size: '400Mb', progress: 100 },
-  { name: 'Panels & Tools', type: 'MP4', size: '400Mb', progress: 100 },
-  { name: 'Customization', type: 'MP4', size: '400Mb', progress: 100 },
-];
-
 const HeroSection = () => {
   const features = [
     'Smart Attendance System',
@@ -17,6 +9,13 @@ const HeroSection = () => {
     'Parent Communication',
     'Digital Learning Platform'
   ];
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
@@ -89,6 +88,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <motion.button
+                onClick={scrollToContact}
                 className="px-8 py-4 bg-[#8000FF] text-white rounded-full font-medium 
                          hover:bg-[#6700D1] transition-all duration-300 shadow-lg 
                          hover:shadow-[#8000FF]/25 flex items-center gap-2"
@@ -102,16 +102,6 @@ const HeroSection = () => {
                 >
                   <ArrowRight className="w-5 h-5" />
                 </motion.span>
-              </motion.button>
-
-              <motion.button
-                className="px-8 py-4 border-2 border-[#8000FF] text-[#8000FF] rounded-full 
-                         font-medium hover:bg-[#8000FF]/5 transition-all duration-300 
-                         flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Watch Demo
               </motion.button>
             </motion.div>
           </motion.div>
