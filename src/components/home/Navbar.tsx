@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
+import mainLogo from '../../assets/mainLogo.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +39,7 @@ const Navbar = () => {
           >
             <Link to="/" className="flex items-center gap-3">
               <motion.img 
-                src="https://smartpath.co.in/logo.png" 
+                src={mainLogo} 
                 alt="SmartPath Logo" 
                 className="h-10 w-auto"
                 whileHover={{ scale: 1.05 }}

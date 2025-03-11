@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import priya from '../../assets/priya sharma.jpg';
+import rajesh from '../../assets/rajesh patel.jpg';
+import anjali from '../../assets/anjali verma.jpg';
 
 const testimonials = [
   {
     name: "Priya Sharma",
     role: "School Principal",
-    image: "https://assets.grok.com/users/f0347e2a-a0ea-4d25-9744-668877fd907d/aFhyhIyFHm9cONxy-generated_image.jpg",
+    image: priya,
     content: "Smart Path has transformed our school's administrative processes. The comprehensive management system has helped us maintain better academic records and streamline communication with parents.",
     rating: 5,
     school: "Delhi Public School, Bangalore",
@@ -15,7 +18,7 @@ const testimonials = [
   {
     name: "Rajesh Patel",
     role: "Academic Director",
-    image: "https://assets.grok.com/users/f0347e2a-a0ea-4d25-9744-668877fd907d/YWHnFC4zJjwREdL1-generated_image.jpg",
+    image: rajesh,
     content: "The examination management and result analysis features have significantly reduced our workload. Parents especially appreciate the real-time updates about their children's progress.",
     rating: 5,
     school: "Modern School, Mumbai",
@@ -24,7 +27,7 @@ const testimonials = [
   {
     name: "Anjali Verma",
     role: "Head of Technology",
-    image: "https://assets.grok.com/users/f0347e2a-a0ea-4d25-9744-668877fd907d/5K6D2clyZnB4rbZd-generated_image.jpg",
+    image: anjali,
     content: "As a tech administrator, I find Smart Path's interface incredibly user-friendly. The integration with our existing systems was seamless, and the digital attendance system is a game-changer.",
     rating: 5,
     school: "Ryan International School, Chennai",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-
+import heroImage from '../../assets/heroImage.jpg'
 const HeroSection = () => {
   const features = [
     'AI-Powered Attendance Tracking',
@@ -115,7 +115,7 @@ const HeroSection = () => {
           >
             <div className="relative z-10">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/27/15/19/ai-generated-8659303_1280.jpg"
+                src={heroImage}
                 alt="Smart Path Platform"
                 className="rounded-2xl shadow-2xl object-cover h-[600px] w-full"
               />
