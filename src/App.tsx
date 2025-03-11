@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Spinner from "./components/home/Spinner";
+import Chatbot from "./components/chatbot/Chatbot";
 
 // Lazy load components
 const Navbar = lazy(() => import("./components/home/Navbar"));
@@ -18,6 +19,7 @@ function App() {
   return (
     <Suspense fallback={<Spinner />}>
       <Navbar />
+      <Chatbot/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<AllFeatures />} />

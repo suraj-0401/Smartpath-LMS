@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface BlogPost {
@@ -143,15 +143,28 @@ const BlogDetails: React.FC = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <motion.h2
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-50 via-white to-purple-50">
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-2xl md:text-3xl font-semibold text-gray-700"
+          className="text-center"
         >
-          Blog Not Found
-        </motion.h2>
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent mb-4">
+            Blog Not Found
+          </h2>
+          <Link to="/blogs">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center px-6 py-3 bg-gradient-to-r from-[#8000FF] to-[#9747FF] text-white rounded-xl 
+                       hover:shadow-lg transition-all duration-300"
+            >
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Back to Blogs
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
     );
   }
@@ -188,134 +201,146 @@ const BlogDetails: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white py-8 md:py-12 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200"
-        >
-          <motion.div variants={imageVariants} className="relative">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-t-2xl"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-t-2xl" />
-            <motion.h1
-              variants={itemVariants}
-              className="absolute bottom-6 left-6 text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-md"
-            >
-              {post.title}
-            </motion.h1>
-          </motion.div>
-
-       
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 via-white to-purple-50">
+      <div className="py-20 bg-gradient-to-b from-[#8000FF]/5 via-[#9747FF]/10 to-[#8000FF]/5">
+        <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Back Button */}
           <motion.div
-            variants={itemVariants}
-            className="px-6 py-4 sm:px-8 sm:py-6 bg-gray-100 flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-600 rounded-b-lg"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6">
-              <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                <span>{post.date}</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-2 text-blue-600" />
-                <span>{post.readTime}</span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-medium text-gray-700">By {post.author}</span>
-              </div>
-            </div>
-            <span className="mt-2 sm:mt-0 text-gray-500">
-              Category: <span className="font-medium text-blue-600">{post.category}</span>
-            </span>
-          </motion.div>
-
-          
-          <motion.div
-            variants={itemVariants}
-            className="px-6 py-8 sm:px-8 sm:py-10 prose prose-sm sm:prose-base md:prose-lg max-w-none"
-          >
-            {post.fullContent.split("\n").map((line, index) => {
-              line = line.trim();
-              if (line.startsWith("## ")) {
-                return (
-                  <h2
-                    key={index}
-                    className="mt-8 mb-4 text-2xl sm:text-3xl font-semibold text-gray-900"
-                  >
-                    {line.replace("## ", "")}
-                  </h2>
-                );
-              }
-              if (line.startsWith("### ")) {
-                return (
-                  <h3
-                    key={index}
-                    className="mt-6 mb-3 text-xl sm:text-2xl font-medium text-gray-800"
-                  >
-                    {line.replace("### ", "")}
-                  </h3>
-                );
-              }
-              if (line.startsWith("- ")) {
-                return (
-                  <li
-                    key={index}
-                    className="ml-4 sm:ml-6 list-disc text-gray-700 leading-relaxed"
-                  >
-                    {line.replace("- ", "")}
-                  </li>
-                );
-              }
-              if (line.startsWith("> ")) {
-                return (
-                  <blockquote
-                    key={index}
-                    className="pl-4 sm:pl-6 border-l-4 border-blue-500 text-gray-600 italic my-4"
-                  >
-                    {line.replace("> ", "")}
-                  </blockquote>
-                );
-              }
-              if (line === "") {
-                return <br key={index} />;
-              }
-              return (
-                <p
-                  key={index}
-                  className="mb-4 text-gray-700 leading-relaxed"
-                >
-                  {line}
-                </p>
-              );
-            })}
-          </motion.div>
-
-         
-          <motion.div
-            variants={itemVariants}
-            className="px-6 py-4 sm:px-8 sm:py-6 bg-gray-50 flex flex-col sm:flex-row justify-between items-center gap-4"
-          >
-            <Link
-              to="/blogs"
-              className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300 text-sm font-medium"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Blogs
+            <Link to="/blogs">
+              <motion.button
+                whileHover={{ x: -5 }}
+                className="flex items-center text-[#8000FF] hover:text-[#9747FF] transition-colors duration-300 font-medium"
+              >
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Back to Blogs
+              </motion.button>
             </Link>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-sm font-medium"
-            >
-              Share This Post
-            </motion.button>
           </motion.div>
-        </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-purple-100"
+          >
+            <motion.div variants={imageVariants} className="relative">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-64 md:h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+                <motion.span
+                  variants={itemVariants}
+                  className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r 
+                           from-[#8000FF]/10 to-[#9747FF]/10 text-white backdrop-blur-sm mb-4"
+                >
+                  {post.category}
+                </motion.span>
+                <motion.h1
+                  variants={itemVariants}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+                >
+                  {post.title}
+                </motion.h1>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="px-8 py-6 md:px-10 md:py-8 bg-gradient-to-r from-[#8000FF]/5 to-[#9747FF]/5 
+                       flex flex-col md:flex-row md:items-center justify-between text-sm"
+            >
+              <div className="flex flex-col md:flex-row md:items-center space-y-3 md:space-y-0 md:space-x-6">
+                <div className="flex items-center">
+                  <Calendar className="w-5 h-5 mr-2 text-[#8000FF]" />
+                  <span className="text-gray-600">{post.date}</span>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="w-5 h-5 mr-2 text-[#8000FF]" />
+                  <span className="text-gray-600">{post.readTime}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="font-medium text-gray-700">By {post.author}</span>
+                </div>
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-4 md:mt-0 flex items-center px-4 py-2 rounded-xl bg-white/80 backdrop-blur-sm 
+                         border border-purple-100 text-[#8000FF] hover:bg-[#8000FF] hover:text-white 
+                         transition-all duration-300"
+              >
+                <Share2 className="w-4 h-4 mr-2" />
+                Share
+              </motion.button>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="px-8 py-10 md:px-10 md:py-12"
+            >
+              <div className="prose prose-lg md:prose-xl max-w-none">
+                {post.fullContent.split("\n").map((line, index) => {
+                  line = line.trim();
+                  if (line.startsWith("## ")) {
+                    return (
+                      <h2
+                        key={index}
+                        className="mt-12 mb-6 text-2xl md:text-3xl font-bold bg-gradient-to-r 
+                                 from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent"
+                      >
+                        {line.replace("## ", "")}
+                      </h2>
+                    );
+                  } else if (line.startsWith("### ")) {
+                    return (
+                      <h3
+                        key={index}
+                        className="mt-8 mb-4 text-xl md:text-2xl font-semibold text-gray-900"
+                      >
+                        {line.replace("### ", "")}
+                      </h3>
+                    );
+                  } else if (line.startsWith("- ")) {
+                    return (
+                      <li
+                        key={index}
+                        className="text-gray-600 leading-relaxed mb-2 list-none flex items-start"
+                      >
+                        <span className="text-[#8000FF] mr-2">•</span>
+                        {line.replace("- ", "")}
+                      </li>
+                    );
+                  } else if (line.startsWith("> ")) {
+                    return (
+                      <blockquote
+                        key={index}
+                        className="my-6 pl-6 border-l-4 border-[#8000FF] bg-gradient-to-r from-[#8000FF]/5 to-transparent 
+                                 py-4 px-6 rounded-r-lg italic text-gray-700"
+                      >
+                        {line.replace("> ", "")}
+                      </blockquote>
+                    );
+                  } else if (line) {
+                    return (
+                      <p key={index} className="text-gray-600 leading-relaxed mb-6">
+                        {line}
+                      </p>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

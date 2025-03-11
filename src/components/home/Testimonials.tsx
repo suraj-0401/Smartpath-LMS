@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "Priya Sharma",
     role: "School Principal",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=800&q=80",
+    image: "https://assets.grok.com/users/f0347e2a-a0ea-4d25-9744-668877fd907d/aFhyhIyFHm9cONxy-generated_image.jpg",
     content: "Smart Path has transformed our school's administrative processes. The comprehensive management system has helped us maintain better academic records and streamline communication with parents.",
     rating: 5,
     school: "Delhi Public School, Bangalore",
@@ -15,7 +15,7 @@ const testimonials = [
   {
     name: "Rajesh Patel",
     role: "Academic Director",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=800&q=80",
+    image: "https://assets.grok.com/users/f0347e2a-a0ea-4d25-9744-668877fd907d/YWHnFC4zJjwREdL1-generated_image.jpg",
     content: "The examination management and result analysis features have significantly reduced our workload. Parents especially appreciate the real-time updates about their children's progress.",
     rating: 5,
     school: "Modern School, Mumbai",
@@ -24,7 +24,7 @@ const testimonials = [
   {
     name: "Anjali Verma",
     role: "Head of Technology",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=800&q=80",
+    image: "https://assets.grok.com/users/f0347e2a-a0ea-4d25-9744-668877fd907d/5K6D2clyZnB4rbZd-generated_image.jpg",
     content: "As a tech administrator, I find Smart Path's interface incredibly user-friendly. The integration with our existing systems was seamless, and the digital attendance system is a game-changer.",
     rating: 5,
     school: "Ryan International School, Chennai",
