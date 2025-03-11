@@ -68,9 +68,9 @@ const Benefits = () => {
         >
           <h2 className="text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-[#8000FF] to-[#9747FF] bg-clip-text text-transparent">
-              Benefits
+              Why Choose us?
             </span>{' '}
-            <span className="text-[#4A4A4A]">for Everyone</span>
+            {/* <span className="text-[#4A4A4A]">for Everyone</span> */}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Experience the advantages that make Smart Path the preferred choice for educational excellence

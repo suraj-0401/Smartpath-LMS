@@ -39,15 +39,10 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
-// Define animation variants
+// Animation variants
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
 
 const item = {
@@ -58,119 +53,123 @@ const item = {
 const Blogs: React.FC = () => {
   const [filter, setFilter] = useState("");
 
-  // Filter blog posts based on the search input
   const filteredPosts = blogPosts.filter((post) =>
-    post.title.toLowerCase().includes(filter.toLowerCase()) ||
-    post.category.toLowerCase().includes(filter.toLowerCase()) ||
-    filter === "All Posts" // Show all posts if "All Posts" is selected
+    filter === ""
+      ? true
+      : post.title.toLowerCase().includes(filter.toLowerCase()) ||
+        post.category.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16">
-      <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.h1
-            className="text-5xl font-bold text-gray-900 mb-4 mt-8"
-            whileHover={{ scale: 1.02 }}
+    <div className="min-h-screen bg-gray-50 font-sans">
+      <div className="py-20 lg:py-24 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            SmartPath Blog
-          </motion.h1>
-          <motion.p
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Insights, tips, and strategies to excel in your academic journey
-          </motion.p>
-        </motion.div>
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+              whileHover={{ scale: 1.02 }}
+            >
+              SmartPath Blog
+            </motion.h1>
+            <motion.p
+              className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Your go-to resource for insights, tips, and strategies to succeed in your academic journey.
+            </motion.p>
+          </motion.div>
 
-        {/* Featured Categories with Hover Effects */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {["All Posts", "NEET", "UPSC", "JEE", "GATE", "Study Tips"].map(
-            (category) => (
+          {/* Category Filters */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-3 mb-12"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            {["All Posts", "NEET", "Study Tips"].map((category) => (
               <motion.button
                 key={category}
                 variants={item}
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "#000",
-                  color: "#fff",
-                }}
-                className="px-6 py-2 rounded-full bg-white shadow-sm transition-all duration-300 text-gray-700"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 shadow-sm
+                  ${
+                    filter === (category === "All Posts" ? "" : category)
+                      ? "bg-indigo-600 text-white"
+                      : "bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-100"
+                  }`}
                 onClick={() => setFilter(category === "All Posts" ? "" : category)}
               >
                 {category}
               </motion.button>
-            )
-          )}
-        </motion.div>
+            ))}
+          </motion.div>
 
-        {/* Blog Posts Grid with Animations */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {filteredPosts.map((post) => (
-            <motion.article
-              key={post.id}
-              variants={item}
-              className="bg-white rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105"
-            >
-              <div className="relative overflow-hidden">
-                <motion.img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover transform transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="p-6 relative">
-                <motion.div className="flex items-center mb-4">
-                  <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+          {/* Blog Posts Grid */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            {filteredPosts.map((post) => (
+              <motion.article
+                key={post.id}
+                variants={item}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+              >
+                <div className="relative">
+                  <motion.img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
+                  <span className="inline-block text-xs font-semibold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full mb-4">
                     {post.category}
                   </span>
-                </motion.div>
-                <motion.h2 className="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-300">
-                  {post.title}
-                </motion.h2>
-                <p className="text-gray-600 mb-4 line-clamp-2">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center text-sm text-gray-500 mb-4">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <span className="mr-4">{post.date}</span>
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>{post.readTime}</span>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center text-xs text-gray-500 mb-4">
+                    <Calendar className="w-4 h-4 mr-1 text-indigo-500" />
+                    <span className="mr-3">{post.date}</span>
+                    <Clock className="w-4 h-4 mr-1 text-indigo-500" />
+                    <span>{post.readTime}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-700 font-medium">
+                      {post.author}
+                    </span>
+                    <Link to={`/blogs/${post.id}`}>
+                      <motion.button
+                        whileHover={{ x: 5 }}
+                        className="flex items-center text-indigo-600 hover:text-indigo-800 font-semibold text-sm transition-colors duration-300"
+                      >
+                        Read More
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </motion.button>
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">
-                    By {post.author}
-                  </span>
-                  <Link to={`/blogs/${post.id}`}>
-                    <motion.button className="flex items-center text-black hover:text-blue-600 transition-colors duration-300">
-                      Read More
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </motion.button>
-                  </Link>
-                </div>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
