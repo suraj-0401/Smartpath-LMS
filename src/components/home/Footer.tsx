@@ -6,6 +6,7 @@ import {
   ChevronRight,
   GraduationCap
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
@@ -75,11 +76,11 @@ const Footer = () => {
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <motion.li key={link.name} whileHover={{ x: 5 }}>
-                  <a href={link.href} className="text-gray-600 hover:text-[#8000FF] flex items-center gap-2
+                  <Link to={link.href} className="text-gray-600 hover:text-[#8000FF] flex items-center gap-2
                                                transition-colors duration-300">
                     <ChevronRight className="w-4 h-4" />
                     {link.name}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -124,15 +125,15 @@ const Footer = () => {
               © {new Date().getFullYear()} Smart Path. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-sm text-gray-600 hover:text-[#8000FF] transition-colors duration-300">
+              <Link to="/privacy" className="text-sm text-gray-600 hover:text-[#8000FF] transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-gray-600 hover:text-[#8000FF] transition-colors duration-300">
+              </Link>
+              <Link to="/terms" className="text-sm text-gray-600 hover:text-[#8000FF] transition-colors duration-300">
                 Terms of Service
-              </a>
-              <a href="#" className="text-sm text-gray-600 hover:text-[#8000FF] transition-colors duration-300">
+              </Link>
+              <Link to="/cookie-policy" className="text-sm text-gray-600 hover:text-[#8000FF] transition-colors duration-300">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
