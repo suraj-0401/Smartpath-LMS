@@ -2,6 +2,9 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Spinner from "./components/home/Spinner";
 import Chatbot from "./components/chatbot/Chatbot";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import CookiePolicy from "./pages/CookiePolicy";
 
 // Lazy load components
 const Navbar = lazy(() => import("./components/home/Navbar"));
@@ -29,6 +32,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
       </Routes>
       <Footer />
     </Suspense>
