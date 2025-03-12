@@ -126,7 +126,7 @@ const AIChatWidget: React.FC<AIChatWidgetProps> = ({
             )}
 
             {isOpen && (
-                <div className={`absolute bottom-0 ${position.includes('right') ? 'right-0' : 'left-0'} w-96 bg-white rounded-2xl shadow-2xl overflow-hidden`}>
+                <div className={`absolute bottom-0 ${position.includes('right') ? 'right-0' : 'left-0'} w-[450px] bg-white rounded-2xl shadow-2xl overflow-hidden`}>
                     <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white p-4 flex items-center justify-between">
                         <div>
                             <h3 className="font-semibold text-lg">Smart Path Support Assistant</h3>
@@ -161,11 +161,11 @@ const AIChatWidget: React.FC<AIChatWidgetProps> = ({
                                     </div>
                                 )}
                                 <div
-                                    className={`max-w-[70%] rounded-2xl p-3 ${
+                                    className={`max-w-[95%] rounded-lg ${
                                         msg.isBot
-                                            ? 'bg-white text-gray-800 shadow-sm border border-purple-100'
-                                            : 'bg-gradient-to-r from-purple-600 to-blue-500 text-white'
-                                    }`}
+                                            ? 'text-gray-800 bg-gray-50/80 border border-gray-100'
+                                            : 'text-white bg-gradient-to-r from-purple-600 to-blue-500'
+                                    } px-4 py-2.5`}
                                 >
                                     <p className="whitespace-pre-wrap">{msg.text}</p>
                                 </div>
