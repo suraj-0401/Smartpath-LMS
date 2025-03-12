@@ -95,17 +95,17 @@ const Footer = () => {
               <p className="text-gray-600">
                 Subscribe to our newsletter for updates and insights.
               </p>
-              <div className="relative">
+              <div className="relative flex items-center">
                 <input
                   type="email"
                   placeholder="Enter your email"
                   className="w-full px-4 py-3 rounded-lg border border-purple-100 bg-white/80
                            focus:border-[#8000FF] focus:ring-2 focus:ring-[#8000FF]/20 
-                           outline-none transition-all duration-300"
+                           outline-none transition-all duration-300 pr-28"
                 />
                 <motion.button
                   type="submit"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#8000FF] text-white 
+                  className="absolute right-2 bg-[#8000FF] text-white 
                            px-4 py-1.5 rounded-md text-sm font-medium hover:bg-[#6700D1] 
                            transition-colors duration-300 shadow-sm"
                   whileHover={{ scale: 1.05 }}
